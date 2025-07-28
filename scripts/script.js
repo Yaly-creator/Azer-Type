@@ -76,4 +76,4 @@ function lancerJeu(listeMots, listePhrases, score) {
     }
 }
    
-console.log(lancerJeu(listeMots, listePhrases, score))
+

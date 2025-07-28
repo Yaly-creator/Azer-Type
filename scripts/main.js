@@ -1,0 +1,1 @@
+lancerJeu(listeMots, listePhrases, score)
