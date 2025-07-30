@@ -1,19 +1,16 @@
-const listeMots = ["Cachalot", "Pétunia", "Serviette"]
-const listePhrases =["Pas de panique !", "La vie, l’univers et le reste", "Merci pour le poisson"]
-
 let score = 0
-let choix= ""
 
 
 
-function afficherResultatMots(score, listeMots) {
-    console.log("Votre score est de "+score +" sur " +listeMots.length)
- }
-function afficherResultatPhrases (score, listePhrases){
-    console.log("Votre score est de "+score +" sur " +listePhrases.length)
+
+function afficherResultat(score, listeMots) {
+    let scoreSpan = document.querySelector(".zoneScore span")
+    let contenu_span = score/listeMots.length
+    scoreSpan.textContent= contenu_span
+    
+    
+ 
 }
-
-
 function choisirPhrasesOuMots() {
     let choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
     // Tant que l'utilisateur n'a pas saisi "mots" ou "phrases", on lui redemande de saisir un choix
@@ -26,7 +23,7 @@ function choisirPhrasesOuMots() {
 
 
 
-function lancerBoucleDeJeu(listeMots, listePhrases){
+function lancerBoucleDeJeu(listeMots, listePhrases, choix){
     
     if (choix==="mots"){ 
         for (i=0; i<listeMots.length; i++){
@@ -67,13 +64,24 @@ function lancerBoucleDeJeu(listeMots, listePhrases){
 
 
 function lancerJeu(listeMots, listePhrases, score) {
-    choix =choisirPhrasesOuMots()
-    score =lancerBoucleDeJeu(listeMots, listePhrases)
-    if (choix=="mots"){
-        afficherResultatMots(score, listeMots)
-    }else{
-        afficherResultatPhrases(score, listePhrases)
+    let choix = choisirPhrasesOuMots()
+    score = lancerBoucleDeJeu(listeMots, listePhrases, choix)
+    if (choix === "mots") {
+        afficherResultat(score, listeMots)
+    } else {
+        afficherResultat(score, listePhrases)
     }
 }
-   
+
+let zone_saisie = document.getElementById("inputEcriture")
+console.log(zone_saisie)
+let zone_boutton= document.getElementById("btnValiderMot")
+console.log(zone_boutton)
+let zone_score = document.querySelector(".zoneScore")
+console.log(zone_score)
+let zone_boutton_radio = document.querySelectorAll(".optionSource input")
+console.log(zone_boutton_radio)
+
+
+
 
